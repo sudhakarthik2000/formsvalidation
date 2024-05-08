@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id = "myform">
+        <input type="text" id="name"> <br><br>
+        <input type="text" id="pswd">  <br><br>
+        <input type="submit">
+    </form>
+    <script>
+        let getform = document.getElementById("myform");
+        getform.addEventListener('submit',()=>{
+        let ex = localStorage.getItem("userdetails");
+        let users = ex?JSON.parse(ex):[]
+                                                                                     // console.log(users);   ....
+    
+            let ip1 = document.getElementById("name").value;
+            let ip2 = document.getElementById("pswd").value;
+            let userdetails = {name:ip1,password:ip2};
+            let flag = 0
+            for (i of users ){
+                if(i.name==ip1){
+                    alert("user already existed")
+                    flag = 1;
+                }
+
+            }
+            if(flag==0){
+            users.push(userdetails)  
+            localStorage.setItem("userdetails",JSON.stringify(users));
+            }
+        })
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <h1>
+        hello
+    </h1> -->
+    <!-- <img src="../images/karthik image.jpg">
+    <img src="../images/v.jpg">
+    <script>
+    //       console.log(document.head)
+    //    console.log(document.body)
+            console.log(document.images)
+            let imgobj = document.images
+            console.log(imgobj)
+            console.log(imgobj[0])
+    </script> -->
+
+
+
+
+        </body>
+        </html>
